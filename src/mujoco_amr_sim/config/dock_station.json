@@ -1,0 +1,7 @@
+{
+  "dock_pose": [-7.10, -5.1, 0.0],
+  "pre_dock_pose": [-5.95, -5.1, 0.0],
+  "contact_distance": 0.18,
+  "charge_distance": 0.22,
+  "yaw_tolerance_deg": 15.0
+}

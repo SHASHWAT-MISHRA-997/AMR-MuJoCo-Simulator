@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MuJoCo Left Panel Guide - mujoco_amr_sim</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f0ea;
+      --paper: #fffdf9;
+      --ink: #1f2430;
+      --muted: #5b6472;
+      --accent: #0d7a5f;
+      --accent-2: #8f2d2d;
+      --line: #d7d1c8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.55 "Segoe UI", Calibri, Arial, sans-serif;
+    }
+    .page {
+      width: 900px;
+      margin: 20px auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 32px 40px 40px;
+    }
+    h1, h2, h3 {
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+    h1 {
+      font-size: 30px;
+      color: var(--accent-2);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 22px;
+      color: var(--accent);
+      margin-top: 28px;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    ul {
+      margin: 8px 0 12px 22px;
+    }
+    li {
+      margin: 6px 0;
+    }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: #eef8f4;
+      padding: 10px 12px;
+      margin: 14px 0;
+    }
+    .warn {
+      border-left: 4px solid var(--accent-2);
+      background: #faeded;
+      padding: 10px 12px;
+      margin: 14px 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: #fff;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f1ece5;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+    .footer {
+      margin-top: 28px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>MuJoCo Left Panel Guide</h1>
+    <p>This guide explains the left-side controls visible when the AMR simulation opens, and how to use the black <code>AMR CONTROL PANEL</code> overlay for day-to-day monitoring.</p>
+
+    <div class="note">
+      Use the left red/black MuJoCo menu for simulator control.
+      Use the black AMR overlay for robot status, autonomy status, and live ROS topics.
+    </div>
+
+    <h2>1. What You Are Looking At</h2>
+    <div class="grid">
+      <section class="card">
+        <h3>MuJoCo Left Menu</h3>
+        <p>This is the built-in simulator control panel. It lets you save, pause, reset, inspect sensors, and tune visualization behavior.</p>
+      </section>
+      <section class="card">
+        <h3>AMR Control Panel</h3>
+        <p>This is our custom overlay. It shows the robot battery, dock state, charging state, autonomy state, current command source, and key ROS topics.</p>
+      </section>
+    </div>
+
+    <h2>2. MuJoCo Left Menu</h2>
+    <h3>File</h3>
+    <ul>
+      <li><code>Save xml</code>: exports the currently loaded model XML.</li>
+      <li><code>Save mjb</code>: saves the compiled MuJoCo binary model.</li>
+      <li><code>Print model</code>: prints model structure information to the console.</li>
+      <li><code>Print data</code>: prints current simulation state data.</li>
+      <li><code>Screenshot</code>: saves the current viewer image.</li>
+      <li><code>Quit</code>: closes the viewer.</li>
+    </ul>
+
+    <h3>Option</h3>
+    <ul>
+      <li><code>Help</code>: basic MuJoCo interaction help.</li>
+      <li><code>Info</code>: current viewer/model information.</li>
+      <li><code>Profiler</code>: performance timing view.</li>
+      <li><code>Sensor</code>: sensor inspection view.</li>
+      <li><code>Pause update</code>: stops screen updates while simulation may continue.</li>
+      <li><code>Fullscreen</code>: expands the viewer window.</li>
+      <li><code>Vertical Sync</code>: can reduce tearing.</li>
+      <li><code>Busy Wait</code>: timing/debug option; usually leave it alone.</li>
+      <li><code>Spacing</code>, <code>Color</code>, <code>Font</code>: visual appearance of the MuJoCo UI panel.</li>
+    </ul>
+
+    <h3>Simulation</h3>
+    <ul>
+      <li><code>Pause</code>: freezes simulation progress.</li>
+      <li><code>Run</code>: resumes simulation.</li>
+      <li><code>Reset</code>: restarts the scene from the initial state.</li>
+      <li><code>Reload</code>: reloads the model if the source changed.</li>
+      <li><code>Align</code>: re-aligns solver state.</li>
+      <li><code>Copy state</code>: copies the current sim state internally.</li>
+      <li><code>Key / Load key / Save key</code>: state snapshot utilities.</li>
+      <li><code>Noise scale</code>, <code>Noise rate</code>: simulator noise/debug fields.</li>
+      <li><code>History</code>: history buffer setting for simulation traces.</li>
+    </ul>
+
+    <h3>Watch, Physics, Rendering, Visualization, Group enable</h3>
+    <ul>
+      <li>These sections are advanced MuJoCo tools for debugging internal state.</li>
+      <li>For normal AMR operation, you usually do not need to expand them.</li>
+      <li>Use them only if you want low-level physics or render diagnostics.</li>
+    </ul>
+
+    <h2>3. AMR Control Panel</h2>
+    <h3>Battery</h3>
+    <p>Shows current simulated battery percentage.</p>
+    <ul>
+      <li>Near <code>100%</code>: robot is fully charged or recently started.</li>
+      <li>Near <code>20%</code>: robot should switch to dock-seeking mode automatically.</li>
+    </ul>
+
+    <h3>Dock Contact</h3>
+    <p>Shows whether the robot is physically aligned and touching the docking area.</p>
+    <ul>
+      <li><code>NO</code>: robot is away from dock.</li>
+      <li><code>YES</code>: robot reached dock contact zone.</li>
+    </ul>
+
+    <h3>Charging</h3>
+    <p>Shows whether charging is actively happening.</p>
+    <ul>
+      <li><code>NO</code>: robot is not charging yet.</li>
+      <li><code>YES</code>: dock contact is good and charging logic is active.</li>
+    </ul>
+
+    <h3>Autonomy</h3>
+    <p>Shows the current autonomy state.</p>
+    <ul>
+      <li><code>PATROL</code>: robot is doing automatic movement through waypoints.</li>
+      <li><code>SEEK_DOCK</code>: battery is low, robot is returning to the dock.</li>
+      <li><code>FINAL_DOCKING</code>: robot is doing fine alignment at the dock.</li>
+      <li><code>CHARGING</code>: robot is docked and charging.</li>
+      <li><code>IDLE</code>: robot is waiting or no motion source is active.</li>
+    </ul>
+
+    <h3>Cmd Source</h3>
+    <p>Shows which velocity source is currently driving the robot.</p>
+    <ul>
+      <li><code>auto</code>: autonomy manager is driving the AMR.</li>
+      <li><code>manual</code>: keyboard teleop is overriding autonomy.</li>
+      <li><code>nav</code>: Nav2 is commanding the robot.</li>
+      <li><code>rl</code>: RL policy node is commanding the robot.</li>
+      <li><code>idle</code>: no active source.</li>
+    </ul>
+
+    <h3>Linear Cmd / Angular Cmd</h3>
+    <p>Shows live command velocities currently applied to the AMR.</p>
+    <ul>
+      <li><code>Linear Cmd</code>: forward/backward motion in meters per second.</li>
+      <li><code>Angular Cmd</code>: turning motion in radians per second.</li>
+    </ul>
+
+    <h2>4. Sensor List In The Overlay</h2>
+    <ul>
+      <li><code>/scan</code>: fused lidar scan used for general obstacle awareness.</li>
+      <li><code>/scan/front_left</code>: front-left lidar raw scan.</li>
+      <li><code>/scan/rear_right</code>: rear-right lidar raw scan.</li>
+      <li><code>/camera/depth/points</code>: depth camera point cloud.</li>
+      <li><code>/odometry/filtered</code>: EKF-fused odometry.</li>
+      <li><code>/battery_state</code>: ROS battery topic.</li>
+    </ul>
+
+    <h2>5. Normal Workflow</h2>
+    <ol>
+      <li>Launch the full stack and wait until the MuJoCo window opens.</li>
+      <li>Look at <code>Autonomy</code> and <code>Cmd Source</code>.</li>
+      <li>If autonomy is healthy, the robot should enter patrol motion automatically.</li>
+      <li>Watch battery percentage drop slowly during movement.</li>
+      <li>At low battery, the robot should change to <code>SEEK_DOCK</code> and go toward the charger.</li>
+      <li>When contact is achieved, <code>Dock Contact</code> should become <code>YES</code>.</li>
+      <li>Then <code>Charging</code> should become <code>YES</code>.</li>
+    </ol>
+
+    <h2>6. Teleop Override</h2>
+    <p>Use this command in another terminal:</p>
+    <p><code>ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/cmd_vel_manual</code></p>
+    <ul>
+      <li>If teleop is active, <code>Cmd Source</code> should change to <code>manual</code>.</li>
+      <li>Manual commands have priority over autonomy.</li>
+      <li>When you stop sending keys, control can return to autonomy after timeout.</li>
+    </ul>
+
+    <h2>7. Troubleshooting From The Panel</h2>
+    <div class="warn">
+      If the robot is visible but not moving, first check <code>Autonomy</code>, then <code>Cmd Source</code>, then the command values.
+    </div>
+    <ul>
+      <li><code>Autonomy = IDLE</code>: autonomy is not active or no valid pose/scan data is available.</li>
+      <li><code>Cmd Source = manual</code> with zero commands: a teleop source may still be overriding.</li>
+      <li><code>Battery = 100%</code> and no movement: check that the sim node did not crash in the launch terminal.</li>
+      <li><code>SEEK_DOCK</code> all the time: battery may be below threshold or docking logic latched.</li>
+      <li><code>Dock Contact = YES</code> but <code>Charging = NO</code>: robot may still be slightly rotating or misaligned.</li>
+    </ul>
+
+    <h2>8. Recommended Daily Use</h2>
+    <ul>
+      <li>Keep the MuJoCo left menu visible.</li>
+      <li>Do not press <code>Reset</code> while testing a docking sequence unless you want a full restart.</li>
+      <li>Use <code>Screenshot</code> when documenting behavior.</li>
+      <li>Use the AMR overlay as the first quick health check before opening RViz.</li>
+    </ul>
+
+    <div class="footer">
+      Document for: <code>mujoco_amr_sim</code><br>
+      Generated inside the project workspace for quick operator reference.
+    </div>
+  </main>
+</body>
+</html>

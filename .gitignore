@@ -1,0 +1,33 @@
+# ROS 2 build outputs
+build/
+install/
+log/
+.verify_logs/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Generated MuJoCo debug dumps
+MJDATA.TXT
+MJMODEL.TXT
+mjmodel.xml
+
+# Local screenshots / recordings
+screenshot.png
+*.mp4
+*.avi
+*.mov
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

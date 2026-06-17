@@ -1,0 +1,13 @@
+build/
+install/
+log/
+.verify_logs/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+MJDATA.TXT
+MJMODEL.TXT
+screenshot.png

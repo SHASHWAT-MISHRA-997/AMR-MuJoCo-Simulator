@@ -1,0 +1,138 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+  - Class: rviz_common/Time
+    Name: Time
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: false
+      Name: Grid
+      Plane: XY
+      Plane Cell Count: 60
+      Cell Size: 0.5
+      Color: 170; 170; 176
+      Alpha: 0.35
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Name: TF
+      Frame Timeout: 15
+      Show Axes: false
+      Show Names: false
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: false
+      Name: Robot Model
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+      Alpha: 1
+      Visual Enabled: true
+      Collision Enabled: false
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Monitoring Markers
+      Marker Topic:
+        Value: /monitoring/markers
+    - Class: rviz_default_plugins/Map
+      Enabled: false
+      Name: Map
+      Topic:
+        Value: /map
+      Alpha: 0.85
+      Color Scheme: map
+    - Class: rviz_default_plugins/LaserScan
+      Enabled: false
+      Name: Combined Lidar
+      Topic:
+        Value: /scan
+      Color: 40; 255; 120
+      Size (Pixels): 3
+      Style: Spheres
+      Use Fixed Frame: true
+    - Class: rviz_default_plugins/LaserScan
+      Enabled: false
+      Name: Front Left Lidar
+      Topic:
+        Value: /scan/front_left
+      Color: 0; 210; 255
+      Size (Pixels): 3
+      Style: Spheres
+      Use Fixed Frame: true
+    - Class: rviz_default_plugins/LaserScan
+      Enabled: false
+      Name: Rear Right Lidar
+      Topic:
+        Value: /scan/rear_right
+      Color: 255; 210; 0
+      Size (Pixels): 3
+      Style: Spheres
+      Use Fixed Frame: true
+    - Class: rviz_default_plugins/PointCloud2
+      Enabled: false
+      Name: Depth PointCloud
+      Topic:
+        Value: /camera/depth/points
+      Size (Pixels): 2
+      Style: Flat Squares
+      Color Transformer: AxisColor
+      Axis: Z
+      Use Fixed Frame: true
+    - Class: rviz_default_plugins/Odometry
+      Enabled: false
+      Name: Filtered Odom
+      Topic:
+        Value: /odometry/filtered
+      Color: 255; 35; 0
+      Keep: 200
+      Position Tolerance: 0.08
+      Angle Tolerance: 0.08
+    - Class: rviz_default_plugins/Odometry
+      Enabled: false
+      Name: Ground Truth Odom
+      Topic:
+        Value: /ground_truth/odom
+      Color: 0; 128; 255
+      Keep: 200
+      Position Tolerance: 0.08
+      Angle Tolerance: 0.08
+  Enabled: true
+  Global Options:
+    Background Color: 28; 32; 36
+    Fixed Frame: odom
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Value: /goal_pose
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 24
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0.75
+      Near Clip Distance: 0.01
+      Pitch: 0.72
+      Yaw: 0.82
+Window Geometry:
+  Height: 900
+  Width: 1500

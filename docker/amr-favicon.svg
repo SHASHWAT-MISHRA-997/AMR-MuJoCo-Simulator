@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AMR TwinFlow">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#07111a"/>
+      <stop offset="100%" stop-color="#12293a"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#41d7f5"/>
+      <stop offset="100%" stop-color="#b9ff58"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="48" fill="none" stroke="url(#glow)" stroke-width="6" opacity="0.9"/>
+  <path d="M34 82V46h13l17 21 17-21h13v36H82V63L64 84 46 63v19H34Z" fill="#eaf7ff"/>
+  <rect x="25" y="24" width="78" height="10" rx="5" fill="url(#glow)" opacity="0.92"/>
+  <circle cx="44" cy="98" r="7" fill="#41d7f5"/>
+  <circle cx="84" cy="98" r="7" fill="#b9ff58"/>
+</svg>
