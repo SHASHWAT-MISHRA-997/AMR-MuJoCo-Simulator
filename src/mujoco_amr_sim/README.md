@@ -9,6 +9,10 @@ The simulation contains two autonomous mobile robots:
 
 The repository is designed for robotics demonstrations, portfolio presentation, interview discussion, and client-facing walkthroughs where the complete system can be launched locally or through Docker.
 
+## Live Simulation Screenshot
+
+![AMR MuJoCo simulation running in Docker/noVNC](../../docs/images/amr-mujoco-simulation.png)
+
 ## Key Highlights
 
 - MuJoCo physics-based simulation environment.
