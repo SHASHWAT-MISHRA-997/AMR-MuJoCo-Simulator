@@ -9,6 +9,10 @@ The simulation contains two autonomous mobile robots:
 
 The repository is designed for robotics demonstrations, portfolio presentation, interview discussion, and client-facing walkthroughs where the complete system can be launched locally or through Docker.
 
+## Demo Video
+
+Watch the project demonstration on YouTube: [https://youtu.be/6bRikWp0-1Q?si=UoeBDqzCrAG4zsc0](https://youtu.be/6bRikWp0-1Q?si=UoeBDqzCrAG4zsc0)
+
 ## Live Simulation Screenshot
 
 ![AMR MuJoCo simulation running in Docker/noVNC](../../docs/images/amr-mujoco-simulation.png)
