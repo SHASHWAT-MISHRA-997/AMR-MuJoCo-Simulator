@@ -2,12 +2,6 @@
 
 Professional dual-AMR simulation built with MuJoCo and ROS 2 Jazzy. The project demonstrates autonomous mobile robot behavior in a structured indoor service environment with target assignment, route execution, obstacle-aware navigation behavior, auto-docking, charging state reporting, operator controls, and Docker-based browser access.
 
-The simulation contains two autonomous mobile robots:
-
-- AMR-A: primary service robot for table and sofa target missions.
-- AMR-B: secondary service robot with its own docking and mission behavior.
-
-The repository is designed for robotics demonstrations, portfolio presentation, interview discussion, and client-facing walkthroughs where the complete system can be launched locally or through Docker.
 
 ## Demo Video
 
